@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top Up Game & Sosmed</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #0d47a1, #1976d2);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+    header p {
+      margin-top: 8px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 20px;
+      text-align: center;
+    }
+    .card img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+    .card p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+    .card button {
+      background: #1976d2;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .card button:hover {
+      background: #0d47a1;
+    }
+    .form-section {
+      margin-top: 40px;
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .form-section h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 22px;
+      text-align: center;
+    }
+    form {
+      display: grid;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+    input, select {
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    form button {
+      background: #2e7d32;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    form button:hover {
+      background: #1b5e20;
+    }
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tegar Store Top Up</h1>
+    <p>Top Up Game & Sosmed • Cepat • Aman • Terpercaya</p>
+  </header>  <div class="container">
+    <section class="products">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/5969/5969282.png" alt="Mobile Legends">
+        <h3>Mobile Legends</h3>
+        <p>Top up Diamond ML murah</p>
+        <button onclick="selectProduct('Mobile Legends')">Pilih</button>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Free Fire">
+        <h3>Free Fire</h3>
+        <p>Top up Diamond FF</p>
+        <button onclick="selectProduct('Free Fire')">Pilih</button>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Instagram">
+        <h3>Instagram</h3>
+        <p>Followers • Likes • Views</p>
+        <button onclick="selectProduct('Instagram')">Pilih</button>
+      </div>
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
+        <h3>TikTok</h3>
+        <p>Followers • Likes • Views</p>
+        <button onclick="selectProduct('TikTok')">Pilih</button>
+      </div>
+    </section><section class="form-section">
+  <h2>Form Top Up</h2>
+  <form onsubmit="submitOrder(event)">
+    <input type="text" id="product" placeholder="Produk" required />
+    <input type="text" placeholder="User ID / Username" required />
+    <select required>
+      <option value="">Pilih Paket</option>
+      <option>Rp5.000</option>
+      <option>Rp10.000</option>
+      <option>Rp20.000</option>
+      <option>Rp50.000</option>
+    </select>
+    <select required>
+      <option value="">Metode Pembayaran</option>
+      <option>DANA</option>
+      <option>OVO</option>
+      <option>GoPay</option>
+      <option>QRIS</option>
+    </select>
+    <button type="submit">Kirim Pesanan</button>
+  </form>
+</section>
+
+  </div>  <footer>
+    © 2025 Tegar Store • All Rights Reserved
+  </footer>  <script>
+    function selectProduct(name) {
+      document.getElementById('product').value = name;
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    function submitOrder(e) {
+      e.preventDefault();
+      alert('Pesanan berhasil dikirim! Admin akan segera memproses.');
+    }
+  </script></body>
+</html>
