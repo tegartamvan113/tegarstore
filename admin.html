@@ -1,0 +1,78 @@
+<!DOCTYPE html><!-- =========================
+ TEGAR STORE PRO VERSION
+ FILE: index.html (WEB PEMBELI)
+========================= --><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tegar Store</title>
+  <style>
+    body{font-family:Arial;background:#fff;margin:0;color:#111}
+    header{padding:20px;border-bottom:1px solid #eee;display:flex;justify-content:space-between}
+    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding:30px}
+    .card{border:1px solid #eee;border-radius:10px;padding:20px;text-align:center}
+    button{background:#000;color:#fff;border:none;padding:10px 15px;border-radius:6px}
+  </style>
+</head>
+<body>
+<header>
+  <h2>Tegar Store</h2>
+  <a href="admin.html">Admin</a>
+</header>
+<section class="products" id="productList"></section>
+<script>
+const products = JSON.parse(localStorage.getItem('products')) || [];
+const list = document.getElementById('productList');
+list.innerHTML = products.length ? products.map(p=>`
+  <div class='card'>
+    <h3>${p.name}</h3>
+    <p>${p.desc}</p>
+    <b>Rp ${p.price}</b><br><br>
+    <a href='https://wa.me/${p.wa}?text=Saya%20ingin%20beli%20${p.name}'>
+      <button>Beli via WA</button>
+    </a>
+  </div>`).join('') : '<p>Belum ada produk</p>';
+</script>
+</body>
+</html><!-- =========================
+ FILE: admin.html (LOGIN + SETTING)
+========================= --><!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Tegar Store</title>
+  <style>
+    body{font-family:Arial;background:#f5f6f8}
+    .box{max-width:400px;margin:60px auto;background:#fff;padding:25px;border-radius:10px}
+    input,button{width:100%;padding:10px;margin-top:10px}
+    button{background:#000;color:#fff;border:none}
+  </style>
+</head>
+<body>
+<div class="box" id="loginBox">
+  <h3>Login Admin</h3>
+  <input id="user" placeholder="Username">
+  <input id="pass" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+</div><div class="box" id="adminBox" style="display:none">
+  <h3>Tambah Produk</h3>
+  <input id="name" placeholder="Nama Produk">
+  <input id="price" placeholder="Harga">
+  <input id="wa" placeholder="No WhatsApp">
+  <input id="desc" placeholder="Deskripsi">
+  <button onclick="addProduct()">Simpan</button>
+</div><script>
+const USER='admin', PASS='tegar123';
+function login(){
+  if(user.value===USER && pass.value===PASS){
+    loginBox.style.display='none';adminBox.style.display='block';
+  } else alert('Login salah');
+}
+function addProduct(){
+  const data = JSON.parse(localStorage.getItem('products')) || [];
+  data.push({name:name.value,price:price.value,wa:wa.value,desc:desc.value});
+  localStorage.setItem('products',JSON.stringify(data));
+  alert('Produk tersimpan');
+}
+</script></body>
+  </html>
